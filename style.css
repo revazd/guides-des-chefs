@@ -1,0 +1,448 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 50px;
+    animation: fadeIn 1s ease-out;
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.chef-icon {
+    width: 70px;
+    height: 70px;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+}
+
+h1 {
+    font-size: 4em;
+    color: white;
+    font-weight: 800;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+}
+
+.subtitle {
+    font-size: 1.4em;
+    color: rgba(255,255,255,0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* AdSense Spaces */
+.ad-space {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: 4px dashed #adb5bd;
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    margin: 30px 0;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.ad-title {
+    font-size: 1.3em;
+    font-weight: 700;
+    color: #495057;
+    margin-bottom: 10px;
+}
+
+.ad-subtitle {
+    color: #6c757d;
+    font-size: 1em;
+}
+
+/* Search Section */
+.search-section {
+    background: white;
+    border-radius: 25px;
+    padding: 40px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+    margin-bottom: 30px;
+}
+
+.search-box {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.search-input-wrapper {
+    flex: 1;
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #667eea;
+    width: 24px;
+    height: 24px;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 20px 20px 20px 60px;
+    font-size: 1.15em;
+    border: 3px solid #667eea;
+    border-radius: 15px;
+    outline: none;
+    transition: all 0.3s;
+    font-family: inherit;
+}
+
+#searchInput:focus {
+    border-color: #764ba2;
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
+    transform: translateY(-2px);
+}
+
+.search-btn {
+    padding: 20px 50px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 1.15em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+    white-space: nowrap;
+}
+
+.search-btn:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(102, 126, 234, 0.5);
+}
+
+.search-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.suggestions {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    color: #495057;
+    font-size: 0.95em;
+}
+
+.suggestions strong {
+    color: #667eea;
+}
+
+/* Error Message */
+.error-message {
+    margin-top: 20px;
+    padding: 20px;
+    background: #fee;
+    border-left: 5px solid #f44336;
+    border-radius: 10px;
+    color: #c62828;
+    font-weight: 600;
+}
+
+/* Loading */
+.loading {
+    text-align: center;
+    padding: 60px;
+    color: white;
+}
+
+.spinner {
+    border: 6px solid rgba(255,255,255,0.3);
+    border-top: 6px solid white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    margin: 30px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Chef Card */
+.chef-card {
+    background: white;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    animation: slideIn 0.6s ease-out;
+    transition: transform 0.3s;
+}
+
+.chef-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 50px rgba(0,0,0,0.35);
+}
+
+.chef-image-container {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+}
+
+.chef-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
+}
+
+.chef-header-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 40px;
+    color: white;
+}
+
+.chef-name {
+    font-size: 3em;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.chef-country {
+    font-size: 1.4em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stars-badge {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background: #ffd700;
+    color: #1a1a1a;
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 1.8em;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Chef Content */
+.chef-content {
+    padding: 50px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.info-card {
+    padding: 30px;
+    border-radius: 20px;
+    border-left: 6px solid;
+    transition: transform 0.3s;
+}
+
+.info-card:hover {
+    transform: translateX(8px);
+}
+
+.info-card.purple {
+    background: linear-gradient(135deg, #f3f0ff 0%, #e9e3ff 100%);
+    border-color: #667eea;
+}
+
+.info-card.yellow {
+    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+    border-color: #f59e0b;
+}
+
+.info-card.blue {
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    border-color: #3b82f6;
+}
+
+.info-card.green {
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    border-color: #10b981;
+}
+
+.info-label {
+    font-size: 0.9em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.info-card.purple .info-label { color: #667eea; }
+.info-card.yellow .info-label { color: #f59e0b; }
+.info-card.blue .info-label { color: #3b82f6; }
+.info-card.green .info-label { color: #10b981; }
+
+.info-value {
+    font-size: 1.3em;
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1.4;
+}
+
+/* Signature Dishes */
+.signature-section {
+    background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%);
+    padding: 40px;
+    border-radius: 20px;
+    border: 3px solid #fb923c;
+    margin-bottom: 30px;
+}
+
+.section-title {
+    font-size: 1.8em;
+    font-weight: 800;
+    margin-bottom: 25px;
+    color: #ea580c;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.dishes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.dish-tag {
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1.05em;
+    box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4);
+    transition: transform 0.3s;
+}
+
+.dish-tag:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(249, 115, 22, 0.5);
+}
+
+/* Achievements */
+.achievements-section {
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    padding: 40px;
+    border-radius: 20px;
+    border-left: 6px solid #3b82f6;
+}
+
+.achievements-section .section-title {
+    color: #1e40af;
+}
+
+.achievements-text {
+    color: #1e293b;
+    font-size: 1.15em;
+    line-height: 1.8;
+}
+
+/* No Results */
+.no-results {
+    text-align: center;
+    padding: 80px 40px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    color: white;
+    font-size: 1.4em;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5em;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    .chef-name {
+        font-size: 2em;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .chef-image-container {
+        height: 300px;
+    }
+
+    .chef-content {
+        padding: 30px;
+    }
+}

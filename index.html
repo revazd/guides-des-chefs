@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chefs Étoilés - Recherche IA en Temps Réel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="header-title">
+                <svg class="chef-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                    <path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"/>
+                    <line x1="6" y1="17" x2="18" y2="17"/>
+                </svg>
+                <h1>Chefs Étoilés</h1>
+            </div>
+            <div class="subtitle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                Recherche en temps réel avec IA
+            </div>
+        </header>
+
+        <!-- Google AdSense - Bannière haute -->
+        <div class="ad-space">
+            <div class="ad-title">📢 Publicité Google AdSense</div>
+            <div class="ad-subtitle">Bannière 728x90 - Insérez votre code AdSense ici</div>
+        </div>
+
+        <!-- Search Section -->
+        <div class="search-section">
+            <div class="search-box">
+                <div class="search-input-wrapper">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                    </svg>
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Rechercher n'importe quel chef étoilé (ex: Ducasse, Ramsay, Pic...)"
+                        onkeypress="if(event.key==='Enter') searchChef()"
+                    />
+                </div>
+                <button class="search-btn" onclick="searchChef()" id="searchBtn">
+                    🔍 Rechercher
+                </button>
+            </div>
+
+            <div id="errorContainer"></div>
+
+            <div class="suggestions">
+                💡 <strong>Suggestions:</strong> Alain Ducasse, Gordon Ramsay, Anne-Sophie Pic, Massimo Bottura, Thomas Keller, Hélène Darroze, Philippe Etchebest, Hugo Roellinger, René Redzepi, Noma...
+            </div>
+        </div>
+
+        <!-- Google AdSense - Rectangle -->
+        <div class="ad-space">
+            <div class="ad-title">📢 Publicité Google AdSense</div>
+            <div class="ad-subtitle">Rectangle 300x250</div>
+        </div>
+
+        <!-- Results Container -->
+        <div id="resultsContainer"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
